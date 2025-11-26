@@ -1,2 +1,3 @@
-# venn-lab
-VennLab é um laboratório visual de teoria dos conjuntos, onde o usuário pode experimentar com criação de conjuntos, operações e diagramas de Venn para fixar o conteúdo de forma prática e intuitiva.
+# Espaço Venn
+Este projeto foi desenvolvido como trabalho da disciplina de Matemática, com foco em teoria dos conjuntos. A aplicação permite que o usuário crie conjuntos (como A, B, C ou o conjunto vazio), adicione e remova elementos e visualize automaticamente as operações mais importantes (união, interseção, diferença, complemento e pertencimento) em diagramas de Venn.
+A proposta é servir como uma ferramenta de apoio ao estudo para novos alunos, tornando o conteúdo mais acessível por meio de uma interface visual, responsiva e fácil de usar, que incentiva a experimentação e a descoberta dos conceitos na prática.
