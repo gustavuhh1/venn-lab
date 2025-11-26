@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { FeatureCard, FeatureCardProps } from "./components/FeatureCard";
-import { FlaskIcon, IntersectThreeIcon } from "@phosphor-icons/react/ssr";
+import { GithubLogoIcon, IntersectThreeIcon } from "@phosphor-icons/react/ssr";
 
 const cards: FeatureCardProps[] = [
   {
@@ -40,13 +40,13 @@ const cards: FeatureCardProps[] = [
 
 export default function Home() {
   return (
-    <main className="mx-auto flex min-h-screen flex-col items-center justify-between xl:max-w-7xl">
+    <main className="mx-auto flex flex-col items-center justify-between xl:max-w-7xl">
       <section className="hero flex-center min-h-screen w-full border-b-10 border-gray-300 px-10">
         <div className="flex-center pb-20">
           {/* TODO: Mudar imagem */}
           <Image
             src="/logomarca.svg"
-            alt="Description"
+            alt="Logomarca do Espaço Venn"
             width={350}
             height={350}
             className="pb-10"
@@ -55,8 +55,8 @@ export default function Home() {
           OPÇÕES:
           https://ui.aceternity.com/components/layout-text-flip 
           */}
-          <div className="flex-center gap-2">
-            <h1 className="text-6xl font-bold">Espaço Venn</h1>
+          <div className="flex-center gap-2 text-center">
+            <h1 className="text-4xl font-bold sm:text-5xl lg:text-7xl">Espaço Venn</h1>
             <p>Aprenda teoria dos conjuntos de forma visual e interativa</p>
           </div>
           {/* TODO: Adicionar carregamento da página com animação
@@ -78,11 +78,11 @@ export default function Home() {
       </section>
 
       <section className="flex-center mt-10 w-full p-10">
-        <div className="flex-center w-full flex-row gap-2 text-center sm:flex-col">
-          <h2 className="text-center text-3xl">Oque é o Espaço Venn?</h2>
-          <p className="max-w-2xl ">
-            Tudo que você precisar para reforçar seu conhecimento em teoria dos
-            conjuntos
+        <div className="flex w-full flex-col items-center  justify-center gap-2 text-center lg:flex-row">
+          <h2 className="text-center text-3xl">O que é o Espaço Venn?</h2>
+          <p className="max-w-2xl">
+            Tudo que você precisa para reforçar seu conhecimento em teoria dos
+            conjuntos.
           </p>
         </div>
         {/* CARD INFORMATIVOS */}
@@ -92,8 +92,18 @@ export default function Home() {
           ))}
         </div>
       </section>
-      <footer className="flex-center w-full border-t-2 border-gray-300 p-5">
+      <footer className="flex w-full items-center justify-between border-t-2 border-gray-300 p-5 text-sm">
         <p>© 2024 Espaço Venn. Todos os direitos reservados.</p>
+        <Link
+          href="https://github.com/seu-usuario/seu-repo"
+          target="_blank"
+          rel="noreferrer"
+          aria-label="Abrir repositório do Espaço Venn no GitHub"
+          className="inline-flex items-center gap-2 text-gray-500 transition-colors hover:text-gray-800"
+        >
+          <GithubLogoIcon size={24} weight="regular" />
+          <span className="hidden sm:inline">Repositório no GitHub</span>
+        </Link>
       </footer>
     </main>
   );
