@@ -1,0 +1,114 @@
+@import "tailwindcss";
+
+:root {
+  /* Base */
+  --bg-primary: #f3f4f6;
+  --bg-card: #ffffff;
+  --bg-card-border: #e5e7eb;
+
+  /* Texto */
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --text-muted: #9ca3af;
+
+  /* Conjuntos */
+  --set-a: #22c55e;
+  --set-b: #f97316;
+  --set-c: #3b82f6;
+
+  /* Ações interface */
+  --button-bg: #2563eb;
+  --button-hover: #1d4ed8;
+}
+
+@layer base {
+  body {
+    @apply antialiased;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  p,
+  span,
+  label,
+  input,
+  button {
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  a {
+    color: var(--button-bg); /* azul principal */
+    text-decoration: none; /* sem sublinhado por padrão */
+    font-weight: 500; /* levemente mais forte que texto comum */
+  }
+
+  a:hover {
+    color: var(--button-hover); /* azul um pouco mais escuro */
+    text-decoration: underline; /* sublinhado só no hover */
+  }
+
+  a:focus-visible {
+    outline: 2px solid var(--button-bg);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .card {
+    @apply flex rounded-lg p-4 shadow-sm;
+    background-color: var(--bg-card);
+    border: 1px solid var(--bg-card-border);
+  }
+
+  .btn-primary {
+    @apply inline-flex cursor-pointer items-center justify-center rounded px-4 py-2;
+    background-color: var(--button-bg);
+    color: #ffffff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--button-hover);
+  }
+
+  .btn-primary:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex cursor-pointer items-center justify-center rounded border px-4 py-2;
+    background-color: var(--bg-card);
+    border-color: var(--bg-card-border);
+    color: var(--text-secondary);
+  }
+
+  .btn-secondary:hover {
+    background-color: #f9fafb;
+  }
+
+  .btn-secondary:disabled {
+    @apply cursor-not-allowed opacity-60;
+  }
+}
+
+// Reset CSS
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
