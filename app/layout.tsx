@@ -35,7 +35,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className={rubik.className}>
-      <body className={`${rubik.variable} antialiased`}>{children}</body>
+      <body className={`${rubik.variable} antialiased`}>
+        {children}
+        <SpeedInsights />
+      </body>
     </html>
   );
 }
