@@ -1,6 +1,5 @@
 "use client"
 import Image from "next/image";
-import Link from "next/link";
 import { FeatureCard, FeatureCardProps } from "./components/FeatureCard";
 import { GithubLogoIcon } from "@phosphor-icons/react/ssr";
 import { TextFlipHome } from "./components/TextFlipHome";
@@ -114,7 +113,7 @@ export default function Home() {
           <a
             onClick={handleLaboratorioClick}
             href="/laboratorio"
-            className="pt-15 cursor-pointer"
+            className="cursor-pointer pt-15"
             aria-label="Acessar laboratório de conjuntos"
           >
             <MovingBorderButton text="Acessar Laboratório" />
@@ -140,7 +139,7 @@ export default function Home() {
       <footer className="flex w-full items-center justify-between border-t-2 border-gray-300 p-5 text-sm">
         <p>© 2024 Espaço Venn. Todos os direitos reservados.</p>
         <LinkPreview
-        quality={100}
+          quality={100}
           url="https://github.com/gustavuhh1/venn-lab"
           aria-label="Abrir repositório do Espaço Venn no GitHub"
           className="inline-flex items-center gap-2 text-gray-500 transition-colors hover:text-gray-800"
