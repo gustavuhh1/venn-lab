@@ -8,8 +8,9 @@ const rubik = Rubik({
 });
 
 export const metadata: Metadata = {
-  title: "Espaço Veinn",
-  description: "Laboratório educativo para estudo Teoria dos conjuntos",
+  title: "Espaço Venn",
+  description:
+    "Plataforma interativa para aprender teoria dos conjuntos com diagramas de Venn",
   category: "Education",
   keywords: [
     "Teoria dos conjuntos",

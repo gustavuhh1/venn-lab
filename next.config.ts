@@ -6,15 +6,21 @@ const nextConfig: NextConfig = {
     styledComponents: true,
   },
   experimental: {
-    optimizePackageImports: ["@phosphor-icons/react"]
+    optimizePackageImports: ["@phosphor-icons/react"],
   },
   images: {
     remotePatterns: [
       {
         protocol: "https",
+        hostname: "user-gen-media-assets.s3.amazonaws.com",
+      },
+      {
+        protocol: "https",
         hostname: "picsum.photos",
-        port: "",
-        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "**.example.com", // Wildcard de subdomínios
       },
     ],
   },
