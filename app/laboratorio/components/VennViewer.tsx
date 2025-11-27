@@ -12,6 +12,7 @@ import {
 } from "reaviz";
 import styled from "styled-components";
 import { Conjuntos } from "@/types/laboratorios";
+import Link from "next/link";
 
 type VennViewerProps = {
   conjuntos: Conjuntos;
@@ -45,7 +46,6 @@ const ViewerContainer = styled.div`
   background: var(--bg-card);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  margin-left: auto;
 `;
 
 const EmptyState = styled.div`
@@ -143,6 +143,16 @@ export function VennViewer({ conjuntos }: VennViewerProps) {
   return (
     <ViewerContainer>
       <h2 className="absolute top-0 pt-5">Visualizador Diagrama de Venn</h2>
+      <p className="absolute right-0 bottom-0 mr-1 ml-auto">
+        powered by{" "}
+        <Link
+          href="https://reaviz.dev/docs/charts/venn-diagram#venn"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Venn.js
+        </Link>
+      </p>
       <VennDiagram
         id="laboratorio-venn"
         height={450}

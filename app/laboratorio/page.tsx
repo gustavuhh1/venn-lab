@@ -85,6 +85,8 @@ export default function LaboratorioPage() {
             <div className="flex gap-4">
               <VennConjOperations conjuntos={conjuntos} />
               <VennConsuOperations conjuntos={conjuntos} />
+            </div>
+            <div className="ml-auto flex gap-4">
               <DiagramaControls
                 conjuntos={conjuntos}
                 onAdicionarElemento={adicionarElemento}
@@ -92,8 +94,8 @@ export default function LaboratorioPage() {
                 onRenomearConjunto={renomearConjunto}
                 onLimparConjunto={limparConjunto}
               />
+              <VennViewer conjuntos={conjuntos} />
             </div>
-            <VennViewer conjuntos={conjuntos} />
           </div>
         </section>
       </div>
