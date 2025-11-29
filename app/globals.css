@@ -6,6 +6,7 @@
 :root {
   /* Base */
   --bg-primary: #f3f4f6;
+  --bg-foreground: #2563eb;
   --bg-card: #ffffff;
   --bg-card-border: #e5e7eb;
 
@@ -60,6 +61,7 @@
   body {
     @apply antialiased;
     background-color: var(--bg-primary);
+    background-color: var(--bg-forenground);
     color: var(--text-primary);
   }
 

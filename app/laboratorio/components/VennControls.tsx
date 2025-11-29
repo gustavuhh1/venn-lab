@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { PlusIcon, TrashIcon, PencilIcon } from "@phosphor-icons/react/ssr";
 import { useState } from "react";
 import { ConjuntoId, Conjuntos } from "@/types/laboratorios";
+import { _100Bubbles } from "reaviz/stories/BubbleChart.story.js";
 
 type DiagramaControlsProps = {
   conjuntos: Conjuntos;
@@ -61,10 +62,10 @@ const Input = styled.input`
   font-size: 0.85rem;
 `;
 
-const Button = styled.button`
-  padding: 6px 12px;
+const Button = styled.button<{ hasIcon?: boolean }>`
+  padding: ${({ hasIcon }) => (hasIcon ? "6px" : "6px 12px")};
   border-radius: 4px;
-  border: none;
+  border: 1px solid #949292;
   background: var(--btn-bg);
   color: var(--btn-text);
   cursor: pointer;
@@ -75,7 +76,8 @@ const Button = styled.button`
   transition: background 0.2s;
 
   &:hover {
-    background: var(--btn-bg-hover);
+    background: #d3d3d3;
+    color: ${({ hasIcon }) => (hasIcon ? "red" : "var(--btn-text)")};
   }
 `;
 
@@ -161,13 +163,14 @@ export function DiagramaControls({
             <span>
               {conjuntos[id].nome} ({id})
             </span>
-            <div style={{ display: "flex", gap: "4px" }}>
+            <div style={{ display: "flex" }}>
               <Button
                 type="button"
                 onClick={() => onLimparConjunto(id)}
                 title="Limpar todos os elementos"
+                hasIcon
               >
-                <TrashIcon size={14} />
+                <TrashIcon strokeWidth={2} size={14} />
               </Button>
             </div>
           </ConjuntoTitle>

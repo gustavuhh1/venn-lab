@@ -36,14 +36,9 @@ const ViewerContainer = styled.div`
   flex-direction: column;
   position: relative;
   align-items: center;
+  height: 33rem;
   justify-content: center;
-  min-height: 500px;
-  max-width: 800px;
   width: fit-content;
-  height: 100%;
-  min-height: 300px;
-  min-width: 300px;
-  background: var(--bg-card);
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 `;
@@ -142,70 +137,73 @@ export function VennViewer({ conjuntos }: VennViewerProps) {
 
   return (
     <ViewerContainer>
-      <h2 className="absolute top-0 pt-5">Visualizador Diagrama de Venn</h2>
-      <p className="absolute right-0 bottom-0 mr-1 ml-auto">
-        powered by{" "}
-        <Link
-          href="https://reaviz.dev/docs/charts/venn-diagram#venn"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Venn.js
-        </Link>
-      </p>
-      <VennDiagram
-        id="laboratorio-venn"
-        height={450}
-        width={450}
-        data={data}
-        series={
-          <VennSeries
-            arc={
-              <VennArc
-                tooltip={
-                  <ChartTooltip
-                    content={(d: { x: string; y: number }) => {
-                      const label = d.x as string;
-                      const size = d.y as number;
-                      const elementos = elementosPorRegiao[label] ?? [];
+      <div className="h-full w-full rounded-xl border-2 border-blue-200 bg-(--bg-card) p-3">
+        <h2 className="uppercase text-xl text-(--text-secondary) text-center">Visualizador Diagrama de Venn:</h2>
+        <hr className="my-2" />
+        <p className="absolute right-0 bottom-0 mr-1 ml-auto">
+          powered by{" "}
+          <Link
+            href="https://reaviz.dev/docs/charts/venn-diagram#venn"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Venn.js
+          </Link>
+        </p>
+        <VennDiagram
+          id="laboratorio-venn"
+          height={450}
+          width={450}
+          data={data}
+          series={
+            <VennSeries
+              arc={
+                <VennArc
+                  tooltip={
+                    <ChartTooltip
+                      content={(d: { x: string; y: number }) => {
+                        const label = d.x as string;
+                        const size = d.y as number;
+                        const elementos = elementosPorRegiao[label] ?? [];
 
-                      return (
-                        <div className="rounded bg-slate-800 p-2 text-xs text-white">
-                          <div className="font-semibold">{label}</div>
-                          <div className="mt-1">Tamanho: {size}</div>
-                          <div className="mt-1">
-                            Elementos:{" "}
-                            {elementos.length > 0
-                              ? elementos.join(", ")
-                              : "nenhum"}
+                        return (
+                          <div className="rounded bg-slate-800 p-2 text-xs text-white">
+                            <div className="font-semibold">{label}</div>
+                            <div className="mt-1">Tamanho: {size}</div>
+                            <div className="mt-1">
+                              Elementos:{" "}
+                              {elementos.length > 0
+                                ? elementos.join(", ")
+                                : "nenhum"}
+                            </div>
                           </div>
-                        </div>
-                      );
-                    }}
-                  />
-                }
-                strokeWidth={2}
-                gradient={<Gradient />}
-              />
-            }
-            label={
-              <VennLabel
-                labelType="value"
-                showAll
-                format={(f: VennFormatData) => {
-                  const keyRaw = f.data.key as string;
-                  const label = keyRaw.split("|").join(" | ");
-                  const size = f.data.size as number;
-                  const elementos = elementosPorRegiao[label] ?? [];
+                        );
+                      }}
+                    />
+                  }
+                  strokeWidth={2}
+                  gradient={<Gradient />}
+                />
+              }
+              label={
+                <VennLabel
+                  labelType="value"
+                  showAll
+                  format={(f: VennFormatData) => {
+                    const keyRaw = f.data.key as string;
+                    const label = keyRaw.split("|").join(" | ");
+                    const size = f.data.size as number;
+                    const elementos = elementosPorRegiao[label] ?? [];
 
-                  const lista = elementos.join(", ");
-                  return `${label} (${size}): [${lista}]`;
-                }}
-              />
-            }
-          />
-        }
-      />
+                    const lista = elementos.join(", ");
+                    return `${label} (${size}): [${lista}]`;
+                  }}
+                />
+              }
+            />
+          }
+        />
+      </div>
     </ViewerContainer>
   );
 }

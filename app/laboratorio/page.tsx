@@ -71,33 +71,30 @@ export default function LaboratorioPage() {
         </Link>
         <p className="text-sm font-medium">Laboratório Venn</p>
       </header>
-      <div className="h-[calc(100vh-90px)] p-5">
-        <section className="flex h-full flex-col">
-          <div className="mx-auto mb-4 max-w-md text-center">
-            <h1 className="mb-1 text-center text-xl font-bold">
-              Bem-vindo ao Laboratório Venn
-            </h1>
-            <p className="text-md">
-              Explore e manipule diagramas de Venn de forma interativa.
-            </p>
+      <div className="min-h-[calc(100vh-90px)] bg-(--bg-foreground/50)">
+        <div
+          style={{
+            backgroundColor: "#0f4c81",
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='1600' height='900' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='1600' height='900' fill='%230f4c81'/%3E%3Ccircle cx='550' cy='320' r='260' fill='%2390c2ff' fill-opacity='0.25'/%3E%3Ccircle cx='850' cy='320' r='260' fill='%23ffffff' fill-opacity='0.12'/%3E%3Ccircle cx='700' cy='550' r='260' fill='%234f8dd7' fill-opacity='0.2'/%3E%3C/svg%3E")`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+          className="h-full p-5"
+        >
+          <div className="grid sm:grid-cols-2 gap-2">
+            <DiagramaControls
+              conjuntos={conjuntos}
+              onAdicionarElemento={adicionarElemento}
+              onRemoverElemento={removerElemento}
+              onRenomearConjunto={renomearConjunto}
+              onLimparConjunto={limparConjunto}
+            />
+            <VennViewer conjuntos={conjuntos} />
+            <VennConjOperations conjuntos={conjuntos} />
+            <VennConsuOperations conjuntos={conjuntos} />
+
           </div>
-          <div className="flex">
-            <div className="flex gap-4">
-              <VennConjOperations conjuntos={conjuntos} />
-              <VennConsuOperations conjuntos={conjuntos} />
-            </div>
-            <div className="ml-auto flex gap-4">
-              <DiagramaControls
-                conjuntos={conjuntos}
-                onAdicionarElemento={adicionarElemento}
-                onRemoverElemento={removerElemento}
-                onRenomearConjunto={renomearConjunto}
-                onLimparConjunto={limparConjunto}
-              />
-              <VennViewer conjuntos={conjuntos} />
-            </div>
-          </div>
-        </section>
+        </div>
       </div>
     </main>
   );
